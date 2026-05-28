@@ -76,16 +76,23 @@ To maximize GPU performance, serve high-throughput workloads, and leverage share
      > vllm.log 2>&1 &
    ```
 
-#### B. Launch the Custom API Server (micromamba)
-1. Initialize the custom environment for embedding & reranking:
+#### B. Launch the Custom API Server (Mamba/Micromamba)
+The Custom API (serving embedding and reranking models) runs in the Mamba-managed environment named `infinity_env`:
+1. If setting up from scratch, create the environment and install dependencies:
    ```bash
-   micromamba create -y -n custom-api python=3.10
-   micromamba run -n custom-api pip install fastapi uvicorn transformers torch torchvision pillow pydantic dotenv
+   micromamba create -y -n infinity_env python=3.10
+   micromamba run -n infinity_env pip install fastapi uvicorn transformers torch torchvision pillow pydantic python-dotenv
    ```
-2. Start the unified custom server hosting `Qwen3-VL-Embedding-8B` & `Qwen3-VL-Reranker-8B` on port `8082`:
+2. Start the unified custom model server hosting `Qwen3-VL-Embedding-8B` & `Qwen3-VL-Reranker-8B` on port `8082`:
    ```bash
-   nohup micromamba run -n custom-api python3 fastapi_app/custom_api.py > custom_api.log 2>&1 &
+   export PATH=/mnt/sda1/chingis/AgenticRAG/mamba_root/envs/infinity_env/bin:$PATH
+   export CUDA_VISIBLE_DEVICES=0
+   export CUDA_MPS_PIPE_DIRECTORY=/tmp/nvidia-mps
+   export CUDA_MPS_LOG_DIRECTORY=/tmp/nvidia-mps/log
+   
+   nohup python -u fastapi_app/custom_api.py > custom_api.log 2>&1 &
    ```
+
 
 ### 4. Launch the PKA Services
 Once the model inference servers are active and reachable on the host, launch the rest of the PKA microservices via Docker Compose:
