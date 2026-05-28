@@ -56,8 +56,39 @@ EMBED_MODEL=Qwen/Qwen3-VL-Embedding-8B
 RERANK_MODEL=Qwen/Qwen3-VL-Reranker-8B
 ```
 
-### 3. Launch the PKA Services
-Start the self-hosted services via Docker Compose:
+### 3. Launch the Host-Based Inference Engines
+
+To maximize GPU performance, serve high-throughput workloads, and leverage shared weights locally, the large language model (vLLM) and embedding/reranking servers run directly on the host using micromamba/conda environments:
+
+#### A. Launch the vLLM Server (micromamba)
+1. Initialize the micromamba environment for vLLM:
+   ```bash
+   micromamba create -y -n vllm python=3.10
+   micromamba run -n vllm pip install vllm
+   ```
+2. Start the `Qwen3.5-27B-FP8` model server on port `8081`:
+   ```bash
+   nohup micromamba run -n vllm vllm serve Qwen/Qwen3.5-27B-FP8 \
+     --port 8081 \
+     --host 0.0.0.0 \
+     --max-model-len 32768 \
+     --gpu-memory-utilization 0.90 \
+     > vllm.log 2>&1 &
+   ```
+
+#### B. Launch the Custom API Server (micromamba)
+1. Initialize the custom environment for embedding & reranking:
+   ```bash
+   micromamba create -y -n custom-api python=3.10
+   micromamba run -n custom-api pip install fastapi uvicorn transformers torch torchvision pillow pydantic dotenv
+   ```
+2. Start the unified custom server hosting `Qwen3-VL-Embedding-8B` & `Qwen3-VL-Reranker-8B` on port `8082`:
+   ```bash
+   nohup micromamba run -n custom-api python3 fastapi_app/custom_api.py > custom_api.log 2>&1 &
+   ```
+
+### 4. Launch the PKA Services
+Once the model inference servers are active and reachable on the host, launch the rest of the PKA microservices via Docker Compose:
 ```bash
 docker compose up -d --build
 ```
@@ -66,7 +97,8 @@ Verify that all containers are healthy:
 docker compose ps
 ```
 
-### 4. Deploy the Ingestion Watchdog
+
+### 5. Deploy the Ingestion Watchdog
 Start the optimized watchdog directly on the host to monitor your local documents share:
 ```bash
 # Install dependencies on the host
@@ -76,7 +108,7 @@ pip3 install smbprotocol cryptography pyspnego
 nohup python3 -u smb_watcher.py > smb_watcher.log 2>&1 &
 ```
 
-### 5. Access the Web UI
+### 6. Access the Web UI
 Open your web browser and navigate to:
 *   **Frontend Chat UI:** `https://your-server-ip:8443`
 *   **Grafana Dashboards:** `http://your-server-ip:3000` (admin/changeme)
