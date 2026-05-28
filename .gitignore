@@ -1,0 +1,43 @@
+# Ignore Python bytecode files and caches
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+
+# Environment secrets — never commit these
+.env
+
+# Local data directories
+es_data/
+opensearch_data/
+postgres_data/
+postgres_data_18/
+neo4j_data/
+ollama_data/
+vllm_data/
+tei_data/
+infinity_data/
+uploaded_files/
+llama_cache/
+hf_cache/
+
+# Certificates
+nginx/certs/
+
+# Model caches
+fastapi_app/model_cache/
+
+*.log
+ingestion_agent/.env
+legal_hr_frontend/.env
+fastapi_app/.env
+.env_remote
+kbv_env
+temp_pw.txt
+temp_pw_2.txt
+test_pw.txt
+scratch/
+*.bat
+

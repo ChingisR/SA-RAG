@@ -1,0 +1,54 @@
+{
+  "welcome": {
+    "title": "ИИ-Ассистент KMG Kashagan",
+    "subtitle": "Интеллектуальный помощник предприятия KMG Kashagan B.V."
+  },
+  "auth": {
+    "login": "Войдите, чтобы получить доступ",
+    "username": "Адрес электронной почты",
+    "password": "Пароль",
+    "submit": "Продолжить",
+    "error": "Не удалось войти. Пожалуйста, проверьте учетные данные."
+  },
+  "chat": {
+    "input_placeholder": "Задайте вопрос...",
+    "streaming": "Получение данных и синтез ответа...",
+    "upload_sync": "Файл прочитан. Генерация ответа...",
+    "upload_async": "Файл проиндексирован в базу знаний в фоновом режиме."
+  },
+  "settings": {
+    "title": "Настройки",
+    "language": "Язык",
+    "role": "Роль пользователя (RBAC)",
+    "admin": "HR-Администратор",
+    "employee": "Рядовой сотрудник",
+    "top_k": "Top-K (Сырой поиск)",
+    "top_n": "Top-N (Контекст LLM)",
+    "temperature": "Креативность ИИ (Температура)",
+    "modal_title": "Настройки генерации",
+    "framework": "ФРЕЙМВОРК ОРКЕСТРАЦИИ",
+    "langchain_title": "LangChain",
+    "langchain_desc": "Монолитный ReAct",
+    "langgraph_title": "LangGraph",
+    "langgraph_desc": "Мультиагентный Supervisor",
+    "reset": "Сбросить по умолчанию",
+    "close": "Закрыть",
+    "output_thinking": "Процесс размышления",
+    "output_thinking_desc": "Разрешить ИИ выводить промежуточные размышления",
+    "langgraph_opt": "LangGraph Workflow (Мульти-Агент)",
+    "llamaindex_opt": "LlamaIndex ReAct (Автономный)",
+    "save": "Сохранить настройки",
+    "saved_success": "Настройки аккаунта сохранены!",
+    "saved_error": "Не удалось сохранить настройки"
+  },
+  "citations": {
+    "label": "Источники и Цитаты",
+    "view_pdf": "Просмотреть PDF"
+  },
+  "nav": {
+    "operationsAlerts": "Операционные оповещения",
+    "documentLibrary": "Библиотека документов",
+    "newChat": "Новый чат",
+    "previousChats": "Предыдущие чаты"
+  }
+}

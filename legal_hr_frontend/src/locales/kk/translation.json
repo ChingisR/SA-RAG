@@ -1,0 +1,52 @@
+{
+  "welcome": {
+    "title": "KMG Kashagan AI-көмекшісі",
+    "subtitle": "KMG Kashagan B.V. үшін корпоративтік зияткерлік көмекші."
+  },
+  "auth": {
+    "login": "Кіру үшін авторлану қажет",
+    "username": "Электрондық пошта мекенжайы",
+    "password": "Құпия сөз",
+    "submit": "Жалғастыру",
+    "error": "Кіру мүмкін болмады. Тіркелгі деректерін тексеріңіз."
+  },
+  "chat": {
+    "input_placeholder": "Сұрағыңызды қойыңыз...",
+    "streaming": "Деректерді алу және жауапты синтездеу...",
+    "upload_sync": "Файл оқылды. Жауап генерациялануда...",
+    "upload_async": "Файл фондық режимде білім базасына индекстелді."
+  },
+  "settings": {
+    "title": "Параметрлер",
+    "language": "Тіл",
+    "role": "Пайдаланушы рөлі (RBAC)",
+    "admin": "HR-Әкімші",
+    "employee": "Қызметкер",
+    "top_k": "Top-K (Шикі іздеу)",
+    "top_n": "Top-N (LLM контексті)",
+    "temperature": "ЖИ креативтілігі (Температура)",
+    "modal_title": "Генерациялық баптаулар",
+    "framework": "ОРКЕСТРАЦИЯ ФРЕЙМВОРКІ",
+    "langchain_title": "LangChain",
+    "langchain_desc": "Монолитті ReAct",
+    "langgraph_title": "LangGraph",
+    "langgraph_desc": "Мультиагентті Supervisor",
+    "reset": "Әдепкі параметрлер",
+    "close": "Жабу",
+    "output_thinking": "Ойлау процесін көрсету",
+    "output_thinking_desc": "ЖИ-ге аралық ойларын көрсетуге рұқсат беру",
+    "langgraph_opt": "LangGraph Workflow (Мультиагентті)",
+    "llamaindex_opt": "LlamaIndex ReAct (Автономды)",
+    "save": "Баптауларды сақтау"
+  },
+  "citations": {
+    "label": "Дереккөздер мен дәйексөздер",
+    "view_pdf": "PDF көру"
+  },
+  "nav": {
+    "operationsAlerts": "Операциялық ескертулер",
+    "documentLibrary": "Құжаттар кітапханасы",
+    "newChat": "Жаңа чат",
+    "previousChats": "Алдыңғы чаттар"
+  }
+}

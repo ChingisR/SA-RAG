@@ -1,0 +1,54 @@
+{
+  "welcome": {
+    "title": "Kashagan Operations AI",
+    "subtitle": "Enterprise Intelligence Assistant for KMG Kashagan B.V."
+  },
+  "auth": {
+    "login": "Login to access the app",
+    "username": "Email Address",
+    "password": "Password",
+    "submit": "Continue",
+    "error": "Unable to sign in. Please check your credentials."
+  },
+  "chat": {
+    "input_placeholder": "Ask a question...",
+    "streaming": "Retrieving data and synthesizing response...",
+    "upload_sync": "File read. Generating answer...",
+    "upload_async": "File indexed into knowledge base in background."
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "role": "User Role (RBAC)",
+    "admin": "HR Administrator",
+    "employee": "Standard Employee",
+    "top_k": "Top-K (Raw Retrieval)",
+    "top_n": "Top-N (LLM Context)",
+    "temperature": "AI Creativity (Temperature)",
+    "modal_title": "Query Settings",
+    "framework": "Orchestration Framework",
+    "langchain_title": "LangChain",
+    "langchain_desc": "Monolithic ReAct",
+    "langgraph_title": "LangGraph",
+    "langgraph_desc": "Multi-Agent Supervisor",
+    "reset": "Reset to Defaults",
+    "close": "Close",
+    "output_thinking": "Output Thinking Process",
+    "output_thinking_desc": "Allow AI to stream raw thought reasoning",
+    "langgraph_opt": "LangGraph Workflow (Multi-Agent)",
+    "llamaindex_opt": "LlamaIndex ReAct (Autonomous)",
+    "save": "Save Account Settings",
+    "saved_success": "Account Settings Saved!",
+    "saved_error": "Failed to save settings"
+  },
+  "citations": {
+    "label": "Sources & Citations",
+    "view_pdf": "View PDF"
+  },
+  "nav": {
+    "operationsAlerts": "Operations Alerts",
+    "documentLibrary": "Document Library",
+    "newChat": "New Chat",
+    "previousChats": "Previous Chats"
+  }
+}
