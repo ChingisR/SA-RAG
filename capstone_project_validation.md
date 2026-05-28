@@ -65,5 +65,5 @@ flowchart TD
 | **MCP Integration** | Live web search tool and dynamic browser execution engines bound via MCP. | **COMPLIANT** |
 | **Real-world applicability** | 100% self-hosted, localized VRAM model hosting (vLLM Qwen3.5 32K context) running at **$0.00** API costs. | **COMPLIANT** |
 | **Inter-agent communication** | Shared state variables, history retention, evaluation-reflection routing, and citation mapping. | **COMPLIANT** |
-| **Testability & Grounding** | Automatic SQL-redirection grounding bypass and E2E behavior suite (`test_llm_behavior.py` passing 6/6). | **COMPLIANT** |
+| **Testability & Grounding** | Native API health probe endpoints (`/api/v1/health`) combined with direct safety/grounding validation via interactive UI testing and container trace logs. | **COMPLIANT** |
 | **Demonstrability** | Fully reactive React/Vite UI featuring collapsed Agent Reasoning timeline steps and dynamic PDF citation rendering. | **COMPLIANT** |

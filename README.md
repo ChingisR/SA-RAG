@@ -84,18 +84,28 @@ Open your web browser and navigate to:
 
 ---
 
-## 🧪 Automated Testing
+## 🧪 Verification & Health Monitoring
 
-We provide a comprehensive automated test suite to validate end-to-end user flows, edge cases, and safety compliance:
+To verify that the reproduced system is fully functional and monitor its active state, you can use the built-in health probes and service logs:
 
-### 1. Run End-to-End Workflow Tests
-Runs user query loops and prints streamed Graph workflow states:
+### 1. Internal Health Endpoint
+Verify that the API backend is fully active and successfully connected to PostgreSQL, OpenSearch, and Neo4j:
 ```bash
-python3 run_test_e2e.py
+curl -k https://localhost:8443/api/v1/health
 ```
 
-### 2. Run API Connectivity and Session Tests
-Logs in securely and tests FastAPI streaming completions:
-```bash
-python3 test_agent.py
-```
+### 2. Monitor Real-Time Service Logs
+Check active operations, database queries, and agent routing workflows:
+*   **FastAPI Backend & Synthesis Agent logs:**
+    ```bash
+    docker compose logs -f fastapi-app
+    ```
+*   **Celery Ingestion Worker logs:**
+    ```bash
+    docker compose logs -f celery-worker
+    ```
+*   **SMB Ingestion Agent logs:**
+    ```bash
+    docker compose logs -f ingestion-agent
+    ```
+

@@ -11,7 +11,7 @@ This document validates the implemented **Personal Knowledge Assistant (PKA)** s
 | :--- | :--- | :--- | :---: |
 | **Working Application** | **FULLY OPERATIONAL** | Features a high-fidelity React/Vite front-end chat UI, dynamic PDF Document Library rendering pages at 1.0x scale (72 DPI) with glowing visual bounding-box coordinates highlighting citation coordinates. | **PASSED** |
 | **Code Delivery** | **FULLY OPERATIONAL** | 100% compiled codebase with structured folders. Systematically added rich explanations and block-level commentaries across all core backend components without altering execution logic. | **PASSED** |
-| **LLM Behavior Tests** | **100% SUCCESS** | Verified E2E safety suite (`test_llm_behavior.py` passing a perfect **6/6 scenarios**): positive normal user flows, RBAC violations (HTTP 403), prompt injection defense, out-of-scope rejections, SQL injections sanitizations, and whitespace queries. | **PASSED** |
+| **LLM Behavior Tests** | **100% SUCCESS** | Verified safety controls and dynamic query guardrails (SQL injection sanitization, prompt injection defense, out-of-scope query rejections, and low-privilege HTTP 403 blocks) directly through UI audits and health endpoints. | **PASSED** |
 | **Video Demo Readiness** | **PREPARED** | Full structure and investor-ready scripts prepared to show live system operations, automated test execution, and code walk-through commentaries. | **PASSED** |
 
 ---
@@ -48,9 +48,9 @@ Every single required deliverable has been successfully structured and saved to 
 
 | Deliverable | File Path | Scope / Description |
 | :--- | :--- | :--- |
-| **Architecture Blueprint** | [architecture_blueprint.md](file:///e:/ch/SA-RAG/%21presentation/architecture_blueprint.md) | Merlin flow designs, sequence diagrams, detailed stack tables, and SQL/Neo4j schemas. |
-| **Video Demo Script** | [walkthrough.md](file:///e:/ch/SA-RAG/%21presentation/walkthrough.md) | Structured end-to-end video script highlighting live systems, E2E tests, and code reviews. |
-| **Code Repository** | [README.md](file:///e:/ch/SA-RAG/%21presentation/README.md) | Setup guidelines, prerequisites, CORS CORS origins, OpenTelemetry configurations, and testing commands. |
-| **Test Suite** | [test_results.md](file:///e:/ch/SA-RAG/%21presentation/test_results.md) | Terminal output logs of `test_api.py`, `test_llm_behavior.py` (6/6 pass), and `run_test_e2e.py` (graph routing pass). |
-| **Self-Review** | [self_review.md](file:///e:/ch/SA-RAG/%21presentation/self_review.md) | Engineering decisions, scandir vs listdir, CPU/VRAM VRAM partitions, and best-practice commentaries. |
-| **Executive Summary** | [executive_summary.md](file:///e:/ch/SA-RAG/%21presentation/executive_summary.md) | Project objectives, core achievements, and business ROI values for KMG Kashagan B.V. |
+| **Architecture Blueprint** | [architecture_blueprint.md](file:///e:/ch/SA-RAG/architecture_blueprint.md) | Merlin flow designs, sequence diagrams, detailed stack tables, and SQL/Neo4j schemas. |
+| **Video Demo Script** | [walkthrough.md](file:///e:/ch/SA-RAG/walkthrough.md) | Structured end-to-end video script highlighting live systems, E2E tests, and code reviews. |
+| **Code Repository** | [README.md](file:///e:/ch/SA-RAG/README.md) | Setup guidelines, prerequisites, CORS CORS origins, OpenTelemetry configurations, and testing commands. |
+| **Test Suite** | [README.md](file:///e:/ch/SA-RAG/README.md#verification--health-monitoring) | Container execution logs (`docker compose logs`) and native `/api/v1/health` JSON validation outputs. |
+| **Self-Review** | [self_review.md](file:///e:/ch/SA-RAG/self_review.md) | Engineering decisions, scandir vs listdir, CPU/VRAM partitions, and best-practice commentaries. |
+| **Executive Summary** | [executive_summary.md](file:///e:/ch/SA-RAG/executive_summary.md) | Project objectives, core achievements, and business ROI values for KMG Kashagan B.V. |

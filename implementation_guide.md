@@ -121,17 +121,12 @@ graph TD
 
 ## 📅 Phase 4: Testing & Validation (5-8 hours)
 
-### 1. Automated Test Suites
-We engineered three distinct automated test files, executed natively inside our testing container:
-*   `test_api.py`: Directly queries the raw `vLLM` port (`8081`) to assess foundational LLM latency.
-*   `test_llm_behavior.py`: Executes E2E validations for **6/6 critical scenarios**:
-    1.  *Positive Flow:* User query fetching documents with correct inline coordinate highlighted citations.
-    2.  *RBAC Security:* Low-privilege user attempting to call a document deletion route is blocked (HTTP 403 Forbidden).
-    3.  *Adversarial Attacks:* Hijacking attempts (e.g. "Ignore previous instructions...") are neutralized.
-    4.  *Content Safety:* Prompts requesting dangerous, illegal, or harmful actions are rejected.
-    5.  *SQL Parameter Sanitization:* SQL injection strings are sanitized and rejected.
-    6.  *Graceful Empty Inputs:* Whitespace-only requests are handled cleanly without crashing.
-*   `run_test_e2e.py`: Streams a complete LangGraph query, tracking supervisor routing, search execution, evaluation, and token output.
+### 1. Verification & Health Monitoring Probes
+To assess system health and verify operational security compliance securely:
+*   **Health API Probe:** Evaluators can query the FastAPI container's native `/api/v1/health` endpoint to run active connectivity checks against OpenSearch, PostgreSQL, and Neo4j.
+*   **Safety & Security Audits:** Evaluators can interactively test system boundaries and security controls directly through the Frontend Chat UI (such as trying out-of-scope prompts, prompt injections, or SQL injection queries) to verify guardrails and self-correction routing in real-time.
+*   **Multi-Agent Workflow Monitoring:** Standard container logging (`docker compose logs -f fastapi-app`) provides real-time streaming traces of LangGraph supervisor routing, node executions, and token metrics.
+
 
 ### 2. Manual Verification & High-Risk Bug Fixes
 *   **PDF Scrolling Heights Collapse Bug:** Discovered that in the React document library, rendering large multi-page PDFs caused the viewport to collapse page canvases into thin 2px horizontal lines. Diagnosed as a Flexbox overflow collapse under default `flex-shrink: 1`. Resolved by patching [PdfDrawer.tsx](file:///e:/ch/SA-RAG/legal_hr_frontend/src/components/PdfDrawer.tsx#L301-L306) to enforce `shrink-0` (`flex-shrink: 0`) on all page card containers.
