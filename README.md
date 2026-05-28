@@ -85,13 +85,15 @@ The Custom API (serving embedding and reranking models) runs in the Mamba-manage
    ```
 2. Start the unified custom model server hosting `Qwen3-VL-Embedding-8B` & `Qwen3-VL-Reranker-8B` on port `8082`:
    ```bash
-   export PATH=/mnt/sda1/chingis/AgenticRAG/mamba_root/envs/infinity_env/bin:$PATH
+   # Export path to your local mamba/micromamba environment's bin folder
+   export PATH=/path/to/your/mamba_root/envs/infinity_env/bin:$PATH
    export CUDA_VISIBLE_DEVICES=0
    export CUDA_MPS_PIPE_DIRECTORY=/tmp/nvidia-mps
    export CUDA_MPS_LOG_DIRECTORY=/tmp/nvidia-mps/log
    
    nohup python -u fastapi_app/custom_api.py > custom_api.log 2>&1 &
    ```
+   *(Note: Alternatively, you can simply activate the environment directly using `micromamba activate infinity_env` or `conda activate infinity_env` before running the python script).*
 
 
 ### 4. Launch the PKA Services
